@@ -1,0 +1,22 @@
+.intro {
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .container  {
+    position: relative;
+  }
+}
+
+.intro__pre {
+  margin-top: 15vh;
+  margin-bottom: 0;
+}
+
+.intro__title {
+  width: 600px;
+  line-height: 1.04;
+  margin-left: 6.5rem;
+  position: relative;
+}

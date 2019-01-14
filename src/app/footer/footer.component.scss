@@ -1,0 +1,47 @@
+@import "../../variables";
+
+.footer {
+  background-color: $primary;
+  padding-top: 2.5rem;
+  padding-bottom: 4rem;
+
+  .container {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.footer__section {
+  margin-left: 6.25rem;
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &--right {
+    margin-left: auto;
+  }
+}
+
+.footer__label {
+  font-size: 1.3125rem;
+  margin-bottom: 0.3125rem;
+  font-weight: normal;
+}
+
+.footer__value {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.footer__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: flex-end;
+
+  > li {
+    margin-left: 2.5rem;
+  }
+}

@@ -1,0 +1,119 @@
+@import "../../variables";
+
+$offset: 15px;
+
+.project-teaser--full {
+  position: relative;
+  padding-top: 1.8rem;
+
+  .project-teaser__image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .project-teaser__link {
+    display: block;
+    width: 80%;
+
+    &:hover .project-teaser__body,
+    &:focus .project-teaser__body {
+      box-shadow: $offset $offset 0 0 $primary;
+      transform: translate(-$offset, -$offset);
+    }
+  }
+
+  .project-teaser__body {
+    background-color: $secondary;
+    color: #fff;
+    padding: 1.5rem;
+    position: absolute;
+    top: 0;
+    box-shadow: 0 0 0 0 $primary;
+    transition: box-shadow 0.3s, transform 0.3s;
+    width: 300px;
+    min-height: 300px;
+  }
+}
+
+
+.project-teaser--left {
+
+  .project-teaser__body {
+    left: 68%;
+  }
+}
+
+.project-teaser--right {
+
+  .project-teaser__link {
+    margin-left: auto;
+  }
+
+  .project-teaser__body {
+    right: 68%;
+  }
+}
+
+
+.project-teaser--grid {
+  position: relative;
+
+  &:before {
+    content: '';
+    display: block;
+    padding-top: 100%;
+  }
+
+  .project-teaser__image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .project-teaser__link {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    left: 0;
+    color: #fff;
+
+    &:before {
+      content: '';
+      position: absolute;
+      background-image: linear-gradient(to bottom, rgba(31, 34, 51, 0.7), rgba(31, 34, 51, 0));
+      top: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    &:focus .project-teaser__text p,
+    &:hover .project-teaser__text p {
+      transform: translateY(0);
+    }
+  }
+
+  .project-teaser__body {
+    position: absolute;
+    top: 2.5rem;
+    right: 2.5rem;
+    left: 2.5rem;
+    bottom: 2.5rem;
+  }
+
+  .project-teaser__text {
+    overflow: hidden;
+
+    p {
+      background-color: $primary;
+      color: $secondary;
+      font-weight: 600;
+      padding: 20px;
+      transform: translateY(calc(-100% + 2px));
+      transition: transform 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    }
+  }
+}

@@ -1,0 +1,12 @@
+<header class="header">
+  <nav class="container">
+    <ul class="header__list">
+      <li class="header__list-item header__list-item--home">
+        <a routerLink="/" class="header__link" routerLinkActive="header__link--active">vellip</a>
+      </li>
+      <li *ngFor="let item of headerLinks" class="header__list-item">
+        <a routerLink="{{item.href}}" class="header__link" routerLinkActive="header__link--active">{{item.label}}</a>
+      </li>
+    </ul>
+  </nav>
+</header>

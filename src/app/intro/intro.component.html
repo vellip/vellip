@@ -1,0 +1,13 @@
+<section class="intro">
+  <div class="container">
+    <div class="h1 intro__pre" *ngIf="pre">
+      <app-shape [shape]="'rectangle'" class="intro__shape intro__shape--rectangle"></app-shape>
+      {{pre}}
+    </div>
+    <h1 class="intro__title">
+      <app-shape [shape]="'triangle'" class="intro__shape intro__shape--triangle"></app-shape>
+      <span [innerHTML]="title"></span>
+    </h1>
+    <app-shape [shape]="'circle'" class="intro__shape intro__shape--circle"></app-shape>
+  </div>
+</section>
