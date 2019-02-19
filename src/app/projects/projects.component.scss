@@ -1,3 +1,7 @@
+.container {
+  position: relative;
+}
+
 :host ::ng-deep .shape--triangle svg {
   width: 800px;
   height: auto;
@@ -12,7 +16,9 @@
 }
 
 :host ::ng-deep .shape--rectangle svg {
-  width: 1300px;
+  width: 100vw;
   height: 220px;
   position: absolute;
+  top: -14vh;
+  left: 0;
 }

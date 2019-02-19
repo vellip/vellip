@@ -1,12 +1,18 @@
 .intro {
-  height: 85vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  margin-top: 210px;
+  margin-bottom: 100px;
 
   .container  {
     position: relative;
   }
+}
+
+.intro--big {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 85vh;
+  margin-top: 0;
 }
 
 .intro__pre {
@@ -17,6 +23,10 @@
 .intro__title {
   width: 600px;
   line-height: 1.04;
-  margin-left: 6.5rem;
   position: relative;
+  margin-bottom: 0;
+}
+
+.intro__title--indent {
+  margin-left: 6.5rem;
 }

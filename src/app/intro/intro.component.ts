@@ -6,8 +6,9 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./intro.component.scss'],
 })
 export class IntroComponent implements OnInit {
-  @Input() pre: string;
-  @Input() title: string;
+  @Input() pre: String;
+  @Input() title: String;
+  @Input() showShapes: Boolean;
 
   constructor() { }
 
