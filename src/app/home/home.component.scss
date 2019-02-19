@@ -3,19 +3,16 @@ app-project-teaser {
   margin-bottom: 6.25rem;
 }
 
-
-
-::ng-deep .shape--triangle svg {
+:host ::ng-deep .shape--triangle svg {
   width: 440px;
   height: auto;
   position: absolute;
   margin-top: -4.43em;
   z-index: -1;
   left: 37%;
-
 }
 
-::ng-deep .shape--circle svg {
+:host ::ng-deep .shape--circle svg {
   width: 460px;
   height: auto;
   position: absolute;
@@ -23,7 +20,7 @@ app-project-teaser {
   left: 0;
 }
 
-::ng-deep .shape--rectangle svg {
+:host ::ng-deep .shape--rectangle svg {
   width: 320px;
   height: auto;
   position: absolute;
