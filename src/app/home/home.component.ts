@@ -8,7 +8,7 @@ import {Component, OnInit} from '@angular/core';
 export class HomeComponent implements OnInit {
 
   preTitle = 'Hallo!';
-  title = 'Ich bin Philipp, <br> ein Webentwickler aus Berlin';
+  title = 'Ich bin Philipp, <br> ein Webentwickler <br> aus Berlin';
 
 
   constructor() {}

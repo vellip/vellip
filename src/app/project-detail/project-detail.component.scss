@@ -1,0 +1,29 @@
+:host ::ng-deep .intro__title {
+  display: inline-block;
+  position: relative;
+}
+
+:host ::ng-deep .shape--triangle svg {
+  width: 100px;
+  height: auto;
+  position: absolute;
+  z-index: -1;
+  right: -50px;
+  bottom: -15px;
+}
+
+:host ::ng-deep .shape--circle svg {
+  width: 100px;
+  height: auto;
+  position: absolute;
+  top: -55px;
+  left: 30%;
+}
+
+:host ::ng-deep .shape--rectangle svg {
+  width: 200px;
+  height: 40px;
+  position: absolute;
+  left: -20px;
+  top: 40px;
+}

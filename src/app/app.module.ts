@@ -11,6 +11,7 @@ import { ProjectTeaserComponent } from './project-teaser/project-teaser.componen
 import { FooterComponent } from './footer/footer.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { ShapeComponent } from './shape/shape.component';
+import { ProjectDetailComponent } from './project-detail/project-detail.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { ShapeComponent } from './shape/shape.component';
     FooterComponent,
     ProjectsComponent,
     ShapeComponent,
+    ProjectDetailComponent,
   ],
   imports: [
     BrowserModule,

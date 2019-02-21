@@ -6,13 +6,16 @@
   width: 800px;
   height: auto;
   position: absolute;
-  z-index: -1;
+  right: 60%;
+  top: 90%;
 }
 
 :host ::ng-deep .shape--circle svg {
   height: 700px;
   width: auto;
   position: absolute;
+  top: 70%;
+  left: 80%;
 }
 
 :host ::ng-deep .shape--rectangle svg {
