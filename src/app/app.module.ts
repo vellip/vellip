@@ -13,6 +13,7 @@ import { ProjectsComponent } from './projects/projects.component';
 import { ShapeComponent } from './shape/shape.component';
 import { ProjectDetailComponent } from './project-detail/project-detail.component';
 import { FactListComponent } from './fact-list/fact-list.component';
+import { ProjectImagesComponent } from './project-images/project-images.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { FactListComponent } from './fact-list/fact-list.component';
     ShapeComponent,
     ProjectDetailComponent,
     FactListComponent,
+    ProjectImagesComponent,
   ],
   imports: [
     BrowserModule,

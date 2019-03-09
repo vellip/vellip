@@ -14,6 +14,13 @@ export class ProjectDetailComponent implements OnInit {
     { term: 'Link', fact: 'jmberlin.de', href: 'http://www.jmberlin.de' },
   ];
 
+  images = [
+    '/assets/project_teaser.png',
+    '/assets/project_teaser.png',
+    '/assets/project_teaser.png',
+    '/assets/project_teaser.png',
+  ]
+
   constructor() { }
 
   ngOnInit() {
