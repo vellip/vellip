@@ -1,0 +1,23 @@
+$gutter: 24px;
+
+.fact-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  font-size: 16px;
+}
+
+.fact-list__term,
+.fact-list__fact {
+  flex: 0 0 50%;
+}
+
+.fact-list__term {
+  text-align: right;
+  font-weight: normal;
+  padding-right: $gutter/2;
+}
+
+.fact-list__fact {
+  padding-left: $gutter/2;
+}

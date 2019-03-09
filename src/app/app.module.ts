@@ -12,6 +12,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { ShapeComponent } from './shape/shape.component';
 import { ProjectDetailComponent } from './project-detail/project-detail.component';
+import { FactListComponent } from './fact-list/fact-list.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ProjectDetailComponent } from './project-detail/project-detail.componen
     ProjectsComponent,
     ShapeComponent,
     ProjectDetailComponent,
+    FactListComponent,
   ],
   imports: [
     BrowserModule,

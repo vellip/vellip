@@ -1,0 +1,10 @@
+<dl class="fact-list">
+  <ng-container *ngFor="let item of list">
+    <dt class="fact-list__term">{{item.term}}</dt>
+    <dd class="fact-list__fact">
+      <a *ngIf="item.href; else text" [href]="item.href">{{item.fact}}</a>
+    </dd>
+    <ng-template #text>{{item.fact}}</ng-template>
+  </ng-container>
+</dl>
+
