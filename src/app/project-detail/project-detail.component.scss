@@ -27,3 +27,11 @@
   left: -20px;
   top: 40px;
 }
+
+.project-detail__intro {
+  margin-bottom: 120px;
+
+  &:before {
+    content: '____';
+  }
+}

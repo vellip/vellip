@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, AfterViewInit , ViewChild} from '@angular/core';
 
 import { MenuItem} from '../menuItem';
+import {WindowRefService} from '../window-ref.service';
 
 @Component({
   selector: 'app-header',
@@ -8,7 +9,10 @@ import { MenuItem} from '../menuItem';
   styleUrls: ['./header.component.scss']
 })
 
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements AfterViewInit  {
+  @ViewChild('header', {read: ElementRef})
+  header: ElementRef;
+  stackedHeader: boolean;
 
   headerLinks: Array<MenuItem> = [
     { label: 'Projekte', href: 'projects' },
@@ -16,9 +20,14 @@ export class HeaderComponent implements OnInit {
     { label: 'Blog', href: '' },
   ];
 
-  constructor() { }
+  constructor(private winRef: WindowRefService) { }
 
-  ngOnInit() {
+  ngAfterViewInit() {
+    this.winRef.nativeWindow.addEventListener('scroll', this.scrollHandler.bind(this));
+  }
+
+  scrollHandler() {
+    this.stackedHeader = this.winRef.nativeWindow.pageYOffset >= 50;
   }
 
 }

@@ -3,26 +3,31 @@ app-project-teaser {
   margin-bottom: 6.25rem;
 }
 
-:host ::ng-deep .shape--triangle svg {
+:host ::ng-deep .shape--triangle {
   width: 440px;
-  height: auto;
-  position: absolute;
-  margin-top: -4.43em;
+  height: 440px;
   z-index: -1;
-  left: 37%;
+  top: -800px;
+  left: 400px;
 }
 
-:host ::ng-deep .shape--circle svg {
+:host ::ng-deep .shape--circle {
   width: 460px;
-  height: auto;
-  position: absolute;
-  top: 335px;
-  left: 0;
+  height: 460px;
+  bottom: 0;
+  margin-left: -30px;
 }
 
-:host ::ng-deep .shape--rectangle svg {
+:host ::ng-deep .shape--rectangle {
   width: 320px;
-  height: auto;
-  position: absolute;
-  left: 0;
+  height: 80px;
+  top: -650px;
+  margin-left: -150px;
+}
+
+:host ::ng-deep .shape--squiggle {
+  width: 1648px;
+  height: 170px;
+  top: -500px;
+  left: 70%;
 }
