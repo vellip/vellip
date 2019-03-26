@@ -14,20 +14,20 @@ app-project-teaser {
 :host ::ng-deep .shape--circle {
   width: 460px;
   height: 460px;
-  bottom: 0;
+  bottom: -120px;
   margin-left: -30px;
 }
 
 :host ::ng-deep .shape--rectangle {
   width: 320px;
   height: 80px;
-  top: -650px;
-  margin-left: -150px;
+  top: -490px;
+  margin-left: -120px;
 }
 
 :host ::ng-deep .shape--squiggle {
-  width: 1648px;
+  width: 1779px;
   height: 170px;
-  top: -500px;
+  top: -250px;
   left: 70%;
 }
