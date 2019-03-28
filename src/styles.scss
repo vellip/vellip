@@ -13,9 +13,16 @@ body {
   overflow-x: hidden;
 }
 
-h1, h2, h3, h4, h5, h6, p {
+h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
   margin-bottom: 0.5em;
+}
+
+p, li, dd, dt {
+  a {
+    color: $accent;
+    transition: color 0.2s;
+  }
 }
 
 img {
