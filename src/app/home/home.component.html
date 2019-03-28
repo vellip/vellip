@@ -6,7 +6,7 @@
     <app-shape [shape]="'rectangle'" [parallaxKey]="'transform: translate(%dpx, 0)'" [speed]="-2"></app-shape>
     <app-shape [shape]="'squiggle'" [parallaxKey]="'stroke-dashoffset: %dpx'" [speed]="-3"></app-shape>
   </div>
-  <app-project-teaser [align]="'left'"></app-project-teaser>
-  <app-project-teaser [align]="'right'"></app-project-teaser>
+  <app-project-teaser *ngFor="let project of projects$ | async; let i = index"
+                      [project]="project" [align]="i % 2 === 0 ? 'left' : 'right'"></app-project-teaser>
 </div>
 

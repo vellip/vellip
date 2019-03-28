@@ -2,6 +2,9 @@ import {Deserializable} from './deserializable';
 import {Image} from './image';
 import {Fact} from './facts';
 import {Component} from './component';
+import {Observable} from 'rxjs';
+import {ApiService} from './api.service';
+import {Injectable, OnInit} from '@angular/core';
 
 export class Post implements Deserializable {
   public id: string;

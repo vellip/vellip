@@ -15,7 +15,6 @@ class Parallax {
     this.key = node.dataset.key;
     this.speed = parseInt(node.dataset.speed, 10) || 4;
   }
-
   public scrollAction = (scrollTop: number): any => {
     if (this.state === scrollTop) {
       return false;
@@ -25,6 +24,7 @@ class Parallax {
     const style: number = linear(scrollTop / 10 * this.speed);
     this.node.style.cssText = this.key.replace('%d', String(style));
   }
+
 }
 
 @Injectable({
