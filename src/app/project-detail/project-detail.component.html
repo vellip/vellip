@@ -1,37 +1,26 @@
-<app-intro [title]="'Jüdisches Museum Berlin'" [showShapes]="true"></app-intro>
-<app-shape [shape]="'circle'" class="intro__shape intro__shape--circle"></app-shape>
-<app-shape [shape]="'triangle'" class="intro__shape intro__shape--triangle"></app-shape>
-<app-shape [shape]="'rectangle'" class="intro__shape intro__shape--rectangle"></app-shape>
-<div class="container container--body">
-  <div class="row">
-    <div class="col-sm-6">
-      <p>
-        ____Die Webseite des Jüdischen Museums Berlin sollte komplett erneuert werden. Mit dem CMS Drupal und einem aufwändigen Design sollte die neue Internetpräsenz modern und einfach handhabbar sein. Wichtiger Fokus war vor allem auch die angenehme User-Experience für alle Nutzergruppen, daher war Barrierefreiheit von großer Bedeutung – ebenso wie Performance.
-      </p>
-    </div>
-    <div class="col-sm-6">
-      <app-fact-list [list]="facts"></app-fact-list>
+<ng-container *ngIf="project$ | async as project">
+  <app-intro [title]="project.title" [showShapes]="true"></app-intro>
+  <app-shape [shape]="'circle'" class="intro__shape intro__shape--circle"></app-shape>
+  <app-shape [shape]="'triangle'" class="intro__shape intro__shape--triangle"></app-shape>
+  <app-shape [shape]="'rectangle'" class="intro__shape intro__shape--rectangle"></app-shape>
+  <div class="container container--body">
+    <div class="row">
+      <div class="col-sm-6">
+        <p class="project-detail__intro">{{project.intro}}</p>
+      </div>
+      <div class="col-sm-6">
+        <app-fact-list [facts]="project.facts"></app-fact-list>
+      </div>
     </div>
   </div>
-</div>
+  
+  <div class="container">
+    <app-project-images [images]="project.gallery"></app-project-images>
+  </div>
 
-<div class="container">
-  <app-project-images [images]="images"></app-project-images>
-</div>
-
-<div class="container container--copy">
-  <h2>Herausforderungen</h2>
-  <p>Während ich an der Webseite gearbeitet habe, gab es einige Herausforderungen zu meistern: unterschiedlichste Teaser, die komplett verlinkt sein sollten aber dennoch barrierefrei sein mussten; drei unterschiedliche Detail-Ansichten die mit dem gleichen HTML ermöglicht werden mussten; ein komplexes, barrierefreies Menü und eine Call-To-Action Leiste, die die einzelnen Social-Media Links vereint.</p>
-  <p>Es war von Anfang an wichtig, dass die Seite in vielen Bereichen so barrierefrei wie möglich wird. In Zusammenarbeit mit Herrn Hellbusch, der mir viele wertvolle Tipps bei der Umsetzung geben konnte, wurden viele Bausteine der Website barrierearm.</p>
-  <h2>Das Menü</h2>
-  <p>Das Menü war von Anfang an ein wichtiges Thema bei der Umsetzung der Seite, es sollte ansprechend sein, zum Erkunden anregen und gleichzeitig einen Schnelleinstieg in die Inhalte bieten. So gibt es nicht nur die drei Hauptnavigationspunkte sondern auch eine Meta-Navigation, die unter anderem die Suche beinhaltet. Außerdem einen Sprachschalter und einen Zielgruppen-orientierten Einstieg. Alle drei Elemente klappen auf Klick aus und schieben die Hauptnavigation hinunter.</p>
-  <p>Da anfangs nicht klar war, ob die Hauptnavigationspunkte selbst verlinkt sein sollten und wohin sie zeigen sollten, kam der Einwand seitens Barrierefreiheit, dass diese klickbar sein müssen, wie gerufen – Für Nutzer mit der Maus öffnet sich die Subnavigation beim Drüberfahren mit dem Cursor – damit Nutzer mit der Tastatur aber nicht durch jeden einzelnen Menüpunkt der ganzen Subnavigation springen müssen, öffnet sich für diese Nutzer die zweite Menüebene nur bei Bestätigung mit Enter. So konnte verhindert werden, dass über 20 Links tabben müssen, bevor sie vielleicht dort ankommen, wo sie hinwollen.</p>
-  <p>Mit dem Design hat sich das Team stark an die faszinierende Architektur des Museums gehalten, die Animation der Linien die schräg und übereinander liegen spiegelt die einzigartige Bauweise der Einrichtung wieder. Ein Balken bewegt sich immer zu dem jeweiligen Hauptnavigationspunkt der gerade geöffnet ist und bringt so ein wenig Dynamik in die Interaktion.</p>
-  <h2>Spezialfall Startseite</h2>
-  <p>Da die Startseite eher minimalistisch sein sollte und nur als Einstieg in den Inhalt gelten soll, musste dieser Einstieg visuell irgendwie dargestellt werden. Also wurde das Menü genommen und etwas aufgefächert, so dass man beim Besuch gleich die zweite Menüebene aller Hauptnavigationspunkte sehen kann.</p>
-  <p>Außerdem ist auf der Startseite initial immer der Punkt "Angebote für" aufgeklappt, um den Einstieg so schnell wie möglich zu machen und dem Nutzer zu zeigen, was sich dahinter denn verbirgt. Da dieser auf anderen Seiten lila hinterlegt ist und das die Aufmerksamkeit enorm auf sich zieht, wurde der Bereich für die Startseite etwas dezenter gestaltet.</p>
-  <h2>Informationsseite</h2>
-  <p>Sobald man tiefer in den Inhalt einsteigt, landet man auf einer Informationsseite. Hier gibt es drei unterschiedliche Darstellungen. Aufgrund einer Einschränkung vom Backend mussten alle drei Darstellungen mit dem gleichen HTML umgesetzt werden. Was besonders dann problematisch ist, wenn das Bild die Position wechselt (vor der Überschrift, über der Unterschrift,...). Mithilfe einiger ausgeklügelten CSS-Tricks (position: absolute) konnte ich das dennoch schaffen.</p>
-  <p>Die Informationsseiten (und auch Verteilerseiten) haben als gestalterisches Element vier graue Linien, die sich durch den ganzen Inhalt ziehen und diesen in Spalten teilen. Während der Einleitungstext immer links liegt, folgt der restliche Inhalt in der rechten Spalte.</p>
-  <p>Da es im Web immer das Problem mit Seitenspalten gibt, dass diese in mobilen Ansichten entweder komplett verschwinden oder komplett unter dem Hauptinhalt folgen, wurde das bei diesem Projekt anders gemacht. Für Nebeninformationen wird die freie linke Spalte genutzt. So erscheint die Nebeninformation immer direkt am dazugehörigen Element, und auch in der mobilen Ansicht wird dieser unmittelbar darüber dargestellt.</p>
-</div>
+  <div class="container container--copy project-detail__body">
+    <ng-container *ngFor="let component of project.body">
+      <div [innerHTML]="component.toHtml()"></div>
+    </ng-container>
+  </div>
+</ng-container>

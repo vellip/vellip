@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute, ParamMap} from '@angular/router';
+import {ApiService} from '../shared/api.service';
+import {Observable} from 'rxjs';
+import {Post} from '../shared/post';
+import {switchMap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-project-detail',
@@ -6,24 +11,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./project-detail.component.scss']
 })
 export class ProjectDetailComponent implements OnInit {
-  facts = [
-    { term: 'Jahr', fact: '2018' },
-    { term: 'Kunde', fact: 'Jüdisches Museum Berlin' },
-    { term: 'Leistungen', fact: 'Frontend, Barrierefreiheit, Javascript' },
-    { term: 'Agentur', fact: '3pc.de' },
-    { term: 'Link', fact: 'jmberlin.de', href: 'http://www.jmberlin.de' },
-  ];
+  private project$: Observable<Post>;
 
-  images = [
-    '/assets/project_teaser.png',
-    '/assets/project_teaser.png',
-    '/assets/project_teaser.png',
-    '/assets/project_teaser.png',
-  ]
-
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute,
+    private api: ApiService,
+  ) { }
 
   ngOnInit() {
+    this.project$ = this.route.paramMap.pipe(
+      switchMap((params: ParamMap) => this.api.getProject(params.get('slug')))
+    );
   }
 
 }

@@ -1,10 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-
-interface FactList {
-  term: string;
-  fact: string | number;
-  href?: string;
-}
+import {Fact} from '../shared/facts';
 
 @Component({
   selector: 'app-fact-list',
@@ -12,11 +7,10 @@ interface FactList {
   styleUrls: ['./fact-list.component.scss']
 })
 export class FactListComponent implements OnInit {
-  @Input() list: Array<FactList>;
+  @Input() facts: Fact[];
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
 }

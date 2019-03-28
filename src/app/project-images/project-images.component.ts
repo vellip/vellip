@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {Image} from '../shared/image';
 
 @Component({
   selector: 'app-project-images',
@@ -6,7 +7,7 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./project-images.component.scss']
 })
 export class ProjectImagesComponent implements OnInit {
-  @Input() images: Array<string>;
+  @Input() images: Image[];
 
   constructor() { }
 

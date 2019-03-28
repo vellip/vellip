@@ -1,4 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Post } from '../shared/post';
 
 @Component({
   selector: 'app-project-teaser',
@@ -8,6 +9,7 @@ import {Component, Input, OnInit} from '@angular/core';
 export class ProjectTeaserComponent implements OnInit {
   @Input() align: string;
   @Input() gridStyle: boolean;
+  @Input() project: Post;
 
   constructor() { }
 

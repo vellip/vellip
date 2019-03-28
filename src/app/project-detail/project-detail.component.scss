@@ -35,3 +35,12 @@
     content: '____';
   }
 }
+
+.project-detail__body {
+  margin-bottom: 120px;
+
+  ::ng-deep h2 {
+    margin-top: 70px;
+    margin-bottom: 15px;
+  }
+}
