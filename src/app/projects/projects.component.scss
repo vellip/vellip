@@ -2,26 +2,26 @@
   margin-bottom: 120px;
 }
 
-:host ::ng-deep .shape--triangle svg {
+:host ::ng-deep .shape--triangle {
   width: 800px;
   height: auto;
   position: absolute;
   right: 60%;
-  top: 90%;
+  top: 0;
 }
 
-:host ::ng-deep .shape--circle svg {
+:host ::ng-deep .shape--circle {
   height: 700px;
-  width: auto;
+  width: 700px;
   position: absolute;
-  top: 70%;
+  top: 0;
   left: 80%;
 }
 
-:host ::ng-deep .shape--rectangle svg {
+:host ::ng-deep .shape--rectangle {
   width: 100vw;
   height: 220px;
   position: absolute;
-  top: -14vh;
-  left: 0;
+  top: 330px;
+  left: 80px;
 }
