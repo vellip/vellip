@@ -1,7 +1,7 @@
 import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
-import {ShapesService} from '../shapes.service';
+import {ShapesService} from '../shared/shapes.service';
 import {DomSanitizer, SafeHtml} from '@angular/platform-browser';
-import {ParallaxService} from '../parallax.service';
+import {ParallaxService} from '../shared/parallax.service';
 
 @Component({
   selector: 'app-shape',

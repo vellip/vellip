@@ -33,7 +33,7 @@ class Parallax {
 export class ParallaxService {
   private scrollHandlers: Array<Function> = [];
   private scrollTop: number;
-  private updating: boolean = false;
+  private updating = false;
 
   constructor(private windowRef: WindowRefService) {}
 
@@ -56,7 +56,7 @@ export class ParallaxService {
 
   scrollHandler() {
     this.scrollTop = this.windowRef.nativeWindow.pageYOffset;
-    this.requestUpdate()
+    this.requestUpdate();
   }
 
   initParallax(node: ElementRef) {

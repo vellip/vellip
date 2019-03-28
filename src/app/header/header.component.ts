@@ -1,7 +1,7 @@
 import {Component, ElementRef, AfterViewInit , ViewChild} from '@angular/core';
 
-import { MenuItem} from '../menuItem';
-import {WindowRefService} from '../window-ref.service';
+import { MenuItem} from '../shared/menuItem';
+import {WindowRefService} from '../shared/window-ref.service';
 
 @Component({
   selector: 'app-header',
