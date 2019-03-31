@@ -1,0 +1,7 @@
+<div class="shapesWrapper" [ngClass]="container ? 'shapesWrapper--noFlex' : ''">
+  <div class="shapesWrapper__fixedLayer" [ngClass]="container ? 'container' : ''">
+    <div class="shapesWrapper__alignedLayer" #wrapper>
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>

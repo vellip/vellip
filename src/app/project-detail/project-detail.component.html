@@ -1,8 +1,12 @@
-<ng-container *ngIf="project$ | async as project">
-  <app-intro [title]="project.title" [showShapes]="true"></app-intro>
-  <app-shape [shape]="'circle'" class="intro__shape intro__shape--circle"></app-shape>
-  <app-shape [shape]="'triangle'" class="intro__shape intro__shape--triangle"></app-shape>
-  <app-shape [shape]="'rectangle'" class="intro__shape intro__shape--rectangle"></app-shape>
+<div class="project-detail" #wrapper *ngIf="project$ | async as project">
+  <div class="container">
+    <app-shapes-wrapper [referenceNode]="wrapper.querySelector('#refNode')">
+      <app-shape *ngIf="project.title.length > 15" [shape]="'circle'" [parallaxKey]="'transform: translate(0, %dpx)'" [speed]="-2"></app-shape>
+      <app-shape *ngIf="project.title.length > 5" [shape]="'triangle'" [parallaxKey]="'transform: translate(0, %dpx)'" [speed]="2"></app-shape>
+      <app-shape [shape]="'rectangle'" [parallaxKey]="'transform: translate(%dpx, 0)'" [speed]="-2"></app-shape>
+    </app-shapes-wrapper>
+    <app-intro id="refNode" [title]="project.title" [hasMargin]="false" class="project-detail__head"></app-intro>
+  </div>
   <div class="container container--body">
     <div class="row">
       <div class="col-sm-6">
@@ -23,4 +27,4 @@
       <div [innerHTML]="component.toHtml()"></div>
     </ng-container>
   </div>
-</ng-container>
+</div>

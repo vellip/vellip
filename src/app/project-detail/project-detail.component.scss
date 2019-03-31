@@ -3,29 +3,32 @@
   position: relative;
 }
 
-:host ::ng-deep .shape--triangle svg {
+:host ::ng-deep .shape--triangle {
   width: 100px;
   height: auto;
-  position: absolute;
   z-index: -1;
-  right: -50px;
-  bottom: -15px;
+  right: -40px;
+  bottom: -60px;
 }
 
-:host ::ng-deep .shape--circle svg {
+:host ::ng-deep .shape--circle {
   width: 100px;
   height: auto;
-  position: absolute;
-  top: -55px;
-  left: 30%;
+  bottom: 0;
+  left: 40%;
 }
 
-:host ::ng-deep .shape--rectangle svg {
+:host ::ng-deep .shape--rectangle {
   width: 200px;
   height: 40px;
-  position: absolute;
   left: -20px;
-  top: 40px;
+  bottom: 0;
+}
+
+.project-detail__head {
+  display: block;
+  margin-top: 210px;
+  margin-bottom: 100px;
 }
 
 .project-detail__intro {

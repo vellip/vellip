@@ -1,0 +1,20 @@
+
+.shapesWrapper:not(.shapesWrapper--noFlex) {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.shapesWrapper__alignedLayer {
+  position: relative;
+}
+
+// used to keep the width of shapesWrapper equal to the text
+::ng-deep .shapesWrapper__clone {
+  visibility: hidden;
+}
+
+.shapesWrapper__fixedLayer {
+  position: fixed;
+  z-index: -1;
+}

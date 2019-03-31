@@ -5,7 +5,7 @@ import {Post} from './shared/post';
 
 @Injectable()
 export class PostListMixin implements OnInit {
-  protected projects$: Observable<Post[]>;
+  public projects$: Observable<Post[]>;
 
   constructor(private api: ApiService) { }
 

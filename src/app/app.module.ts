@@ -14,6 +14,7 @@ import { ShapeComponent } from './shape/shape.component';
 import { ProjectDetailComponent } from './project-detail/project-detail.component';
 import { FactListComponent } from './fact-list/fact-list.component';
 import { ProjectImagesComponent } from './project-images/project-images.component';
+import { ShapesWrapperComponent } from './shape/shapes-wrapper/shapes-wrapper.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { ProjectImagesComponent } from './project-images/project-images.componen
     ProjectDetailComponent,
     FactListComponent,
     ProjectImagesComponent,
+    ShapesWrapperComponent,
   ],
   imports: [
     BrowserModule,

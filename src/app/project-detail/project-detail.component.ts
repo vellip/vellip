@@ -11,7 +11,7 @@ import {switchMap} from 'rxjs/operators';
   styleUrls: ['./project-detail.component.scss']
 })
 export class ProjectDetailComponent implements OnInit {
-  private project$: Observable<Post>;
+  public project$: Observable<Post>;
 
   constructor(
     private route: ActivatedRoute,

@@ -8,7 +8,7 @@ import {Component, Input, OnInit} from '@angular/core';
 export class IntroComponent implements OnInit {
   @Input() pre: String;
   @Input() title: String;
-  @Input() showShapes: Boolean;
+  @Input() hasMargin = true;
 
   constructor() { }
 
