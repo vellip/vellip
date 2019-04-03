@@ -21,7 +21,8 @@ app-project-teaser {
   width: 320px;
   height: 80px;
   left: -130px;
-  top: 370px
+  top: 370px;
+  transform-origin: center bottom;
 }
 
 :host ::ng-deep .shape--squiggle {

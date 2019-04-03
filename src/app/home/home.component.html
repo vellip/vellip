@@ -1,14 +1,23 @@
 <div class="home" #wrapper>
   <div class="container">
     <app-shapes-wrapper [referenceNode]="wrapper.querySelector('#refNode')" [container]="true">
-      <app-shape [shape]="'circle'" [parallaxKey]="'transform: translate(0, %dpx)'" [speed]="3"></app-shape>
-      <app-shape [shape]="'triangle'" [parallaxKey]="'transform: translate(0, %dpx)'" [speed]="-4"></app-shape>
-      <app-shape [shape]="'rectangle'" [parallaxKey]="'transform: translate(%dpx, 0)'" [speed]="-2"></app-shape>
-      <app-shape [shape]="'squiggle'" [parallaxKey]="'stroke-dashoffset: %dpx'" [speed]="-3"></app-shape>
+      <app-shape [shape]="'circle'" [appParallax]="
+        [{ property: 'transform', speed: -17, value: 'translateX(%dpx)' },
+        { property: 'transform', speed: 7, value: 'translateY(%dpx)' }]
+      "></app-shape>
+      <app-shape [shape]="'triangle'" [appParallax]="
+        [{ property: 'transform', speed: 5, value: 'translateX(%dpx)' },
+        { property: 'transform', speed: 12, value: 'translateY(-%dpx)' },
+        { property: 'transform', speed: 3, value: 'rotate(-%ddeg)' }]
+      "></app-shape>
+      <app-shape [shape]="'rectangle'" [appParallax]="
+        [{ property: 'transform', speed: 0.5, value: 'scaleY(%d)', start: 1, end: 3 }, { property: 'transform', speed: 6, value: 'translateY(-%dpx)', end: 70},
+        { property: 'transform', speed: 15, value: 'translateX(-%dpx)', delay: 115}]
+      "></app-shape>
+      <app-shape [shape]="'squiggle'" [appParallax]="[{ property: 'stroke-dashoffset', speed: -10, value: '%dpx' }]"></app-shape>
     </app-shapes-wrapper>
     <app-intro id="refNode" [pre]="preTitle" [title]="title"></app-intro>
   </div>
   <app-project-teaser *ngFor="let project of projects$ | async; let i = index"
                       [project]="project" [align]="i % 2 === 0 ? 'left' : 'right'"></app-project-teaser>
 </div>
-

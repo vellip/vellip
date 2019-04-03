@@ -1,30 +1,47 @@
-import {ElementRef, Injectable} from '@angular/core';
-import linear from 'eases/linear';
+import {Injectable} from '@angular/core';
 import {WindowRefService} from './window-ref.service';
+
+export interface ParallaxOption {
+  [property: string]: {value: string, speed: number, start: number, end?: number, delay?: number}[];
+}
 
 @Injectable({
   providedIn: 'root'
 })
-
 class Parallax {
   private state: number;
-  private speed: number;
-  private key: string;
 
-  constructor(private node: HTMLElement) {
-    this.key = node.dataset.key;
-    this.speed = parseInt(node.dataset.speed, 10) || 4;
-  }
-  public scrollAction = (scrollTop: number): any => {
+  constructor(private node: HTMLElement, private options: ParallaxOption) { }
+
+
+  public scrollAction = (scrollTop: number): any  => {
     if (this.state === scrollTop) {
       return false;
     }
 
-    this.state = scrollTop;
-    const style: number = linear(scrollTop / 10 * this.speed);
-    this.node.style.cssText = this.key.replace('%d', String(style));
-  }
+    let cssText = '';
 
+    for (const key in this.options) {
+      if (this.options.hasOwnProperty(key)) {
+        cssText += `${key}: `;
+        this.options[key].forEach(el => {
+
+          const start = el.start || 0;
+          const delay = el.delay || 0;
+          let style: number = (scrollTop - delay) / 10 * el.speed + start;
+          if (style > el.end) {
+            style = el.end;
+          }
+          if (delay) {
+            style = Math.max(0, style);
+          }
+          cssText += el.value.replace(/%d/g, String(style));
+        });
+      }
+    }
+    this.state = scrollTop;
+    this.node.style.cssText = cssText;
+  }
 }
 
 @Injectable({
@@ -59,12 +76,12 @@ export class ParallaxService {
     this.requestUpdate();
   }
 
-  initParallax(node: ElementRef) {
+  initParallax(node: HTMLElement, options: ParallaxOption) {
     if (!this.scrollHandlers.length) {
       this.init();
     }
 
-    const newParallax = new Parallax(node.nativeElement);
+    const newParallax = new Parallax(node, options);
     this.scrollHandlers.push(newParallax.scrollAction);
   }
 }

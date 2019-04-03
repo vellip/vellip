@@ -7,7 +7,7 @@ import {Component, ElementRef, Input, AfterViewInit, Renderer2, ViewChild} from 
 })
 export class ShapesWrapperComponent implements AfterViewInit {
   @ViewChild('wrapper') wrapper: ElementRef;
-  @Input() referenceNode: HTMLElement;
+  @Input() referenceNode: Element;
   @Input() container = false;
   private nodeClone: HTMLElement;
 
@@ -20,7 +20,7 @@ export class ShapesWrapperComponent implements AfterViewInit {
     if (!this.referenceNode) {
       console.error('shapes-wrapper needs a reference node');
     }
-    this.nodeClone = this.referenceNode.cloneNode(true);
+    this.nodeClone = this.referenceNode.cloneNode(true) as HTMLElement;
     this.nodeClone.id = '';
     this.renderer.addClass(this.nodeClone, 'shapesWrapper__clone');
     this.renderer.appendChild(this.wrapper.nativeElement, this.nodeClone);
