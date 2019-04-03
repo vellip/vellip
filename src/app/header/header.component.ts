@@ -1,7 +1,6 @@
-import {Component, ElementRef, AfterViewInit , ViewChild} from '@angular/core';
+import {Component, AfterViewInit} from '@angular/core';
 
 import { MenuItem} from '../shared/menuItem';
-import {WindowRefService} from '../shared/window-ref.service';
 
 @Component({
   selector: 'app-header',
@@ -10,24 +9,13 @@ import {WindowRefService} from '../shared/window-ref.service';
 })
 
 export class HeaderComponent implements AfterViewInit  {
-  @ViewChild('header', {read: ElementRef})
-  header: ElementRef;
-  stackedHeader: boolean;
-
   headerLinks: Array<MenuItem> = [
     { label: 'Projekte', href: 'projects' },
     { label: 'About', href: '' },
     { label: 'Blog', href: '' },
   ];
 
-  constructor(private winRef: WindowRefService) { }
+  constructor() { }
 
-  ngAfterViewInit() {
-    this.winRef.nativeWindow.addEventListener('scroll', this.scrollHandler.bind(this));
-  }
-
-  scrollHandler() {
-    this.stackedHeader = this.winRef.nativeWindow.pageYOffset >= 50;
-  }
-
+  ngAfterViewInit() {}
 }

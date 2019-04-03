@@ -6,27 +6,6 @@
   z-index: 1;
   top: 0;
   width: 100%;
-
-  &--stacked {
-
-    .header__list-item {
-      flex: 0 0 100%;
-      text-align: right;
-    }
-
-    .header__list-item--home {
-      flex-basis: auto;
-      text-align: left;
-
-      + .header__list-item {
-        flex-basis: auto;
-      }
-    }
-
-    .header__list {
-      flex-wrap: wrap;
-    }
-  }
 }
 
 .header__list {
@@ -38,7 +17,8 @@
 }
 
 .header__list-item {
-  margin-left: 3.125rem;
+  width: 120px;
+  text-align: right;
 }
 
 .header__link {
@@ -52,4 +32,6 @@
 .header__list-item--home {
   margin-right: auto;
   margin-left: 0;
+  text-align: left;
+  width: auto;
 }

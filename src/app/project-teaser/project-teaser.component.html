@@ -1,7 +1,9 @@
 <div class="project-teaser project-teaser--{{align}}" [ngClass]="{'project-teaser--grid': gridStyle, 'project-teaser--full': !gridStyle}">
   <a [routerLink]="['/projects', project.title_slug]" class="project-teaser__link">
     <img class="project-teaser__image" [src]="project.image.path" alt="Test">
-    <div class="project-teaser__body">
+    <div class="project-teaser__body" [appParallax]="
+        [{ property: 'transform', speed: 3, value: 'translateY(%dpx)', end: 210}]
+      ">
       <h2>{{project.title}}</h2>
       <div class="project-teaser__text">
         <p>{{project.excerpt}}</p>
