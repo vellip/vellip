@@ -1,23 +1,24 @@
 <div class="home" #wrapper>
+  <div class="home__placeholder" *ngIf="showPlaceholder"></div>
   <div class="container">
     <app-shapes-wrapper [referenceNode]="wrapper.querySelector('#refNode')" [container]="true">
       <app-shape [shape]="'circle'" [appParallax]="
-        [{ property: 'transform', speed: -17, value: 'translateX(%dpx)' },
-        { property: 'transform', speed: 7, value: 'translateY(%dpx)' }]
+        [{ property: 'transform', speed: -17, value: 'translateX(%dpx)', delay: 150},
+        { property: 'transform', speed: 7, value: 'translateY(%dpx)', delay: 150}]
       "></app-shape>
       <app-shape [shape]="'triangle'" [appParallax]="
-        [{ property: 'transform', speed: 5, value: 'translateX(%dpx)' },
-        { property: 'transform', speed: 12, value: 'translateY(-%dpx)' },
-        { property: 'transform', speed: 3, value: 'rotate(-%ddeg)' }]
+        [{ property: 'transform', speed: 3, value: 'rotate(-%ddeg)', delay: 150}]
       "></app-shape>
       <app-shape [shape]="'rectangle'" [appParallax]="
-        [{ property: 'transform', speed: 0.5, value: 'scaleY(%d)', start: 1, end: 3 }, { property: 'transform', speed: 6, value: 'translateY(-%dpx)', end: 70},
-        { property: 'transform', speed: 15, value: 'translateX(-%dpx)', delay: 115}]
+        [{ property: 'transform', speed: 0.5, value: 'scaleY(%d)', start: 1, end: 3, delay: 5},
+        { property: 'transform', speed: 6, value: 'translateY(-%dpx)', end: 70, delay: 10},
+        { property: 'transform', speed: 15, value: 'translateX(-%dpx)', delay: 130}]
       "></app-shape>
-      <app-shape [shape]="'squiggle'" [appParallax]="[{ property: 'stroke-dashoffset', speed: -10, value: '%dpx' }]"></app-shape>
+      <app-shape [shape]="'squiggle'" [appParallax]="[{ property: 'stroke-dashoffset', speed: 15, value: '-%dpx', end: 960, delay: 10}]"></app-shape>
     </app-shapes-wrapper>
     <app-intro id="refNode" [pre]="preTitle" [title]="title"></app-intro>
   </div>
   <app-project-teaser *ngFor="let project of projects$ | async; let i = index"
-                      [project]="project" [align]="i % 2 === 0 ? 'left' : 'right'"></app-project-teaser>
+                      [project]="project" [align]="i % 2 === 0 ? 'left' : 'right'"
+  ></app-project-teaser>
 </div>

@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 
-function _window() {
+function _window(): Window {
   return window;
 }
 
@@ -9,7 +9,7 @@ function _window() {
 })
 export class WindowRefService {
 
-  get nativeWindow(): any {
+  get nativeWindow(): Window {
     return _window();
   }
 }
