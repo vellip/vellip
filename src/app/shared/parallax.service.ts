@@ -1,8 +1,8 @@
-import {Injectable} from '@angular/core';
+import {Injectable, NgZone} from '@angular/core';
 import {WindowRefService} from './window-ref.service';
 
 export interface ParallaxOption {
-  [property: string]: {value: string, speed: number, start: number, end?: number, delay?: number}[];
+  [property: string]: {value: string, speed: number, start: number, end?: number, delay?: number, notNegative?: boolean}[];
 }
 
 @Injectable({
@@ -29,6 +29,9 @@ class Parallax {
           const start = el.start || 0;
           const delay = el.delay || 0;
           let style: number = (scrollTop - delay) / 10 * el.speed + start;
+          if (delay > scrollTop) {
+            style = start;
+          }
           if (style > el.end) {
             style = el.end;
           }
@@ -52,11 +55,16 @@ export class ParallaxService {
   private scrollTop: number;
   private updating = false;
 
-  constructor(private windowRef: WindowRefService) {}
+  constructor(
+    private windowRef: WindowRefService,
+    private ngZone: NgZone
+    ) {}
 
   init() {
-    this.windowRef.nativeWindow.addEventListener('scroll', this.scrollHandler.bind(this), false);
-    this.requestUpdate();
+    this.ngZone.runOutsideAngular(() => {
+      this.windowRef.nativeWindow.addEventListener('scroll', this.scrollHandler.bind(this), false);
+      this.requestUpdate();
+    });
   }
 
   update() {

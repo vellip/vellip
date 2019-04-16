@@ -6,8 +6,8 @@
       </li>
       <li *ngFor="let item of headerLinks; let i = index" class="header__list-item" [appParallax]="
         [{ property: 'transform', speed: 10, value: 'translateY(%dpx)', end: 90 - (30 * (headerLinks.length - i)),
-          delay: i === headerLinks.length - 1 ? 0 : 360 + 90 * (headerLinks.length - i)},
-        { property: 'transform', speed: 10, value: 'translateX(%dpx)', end: 120 * (headerLinks.length - i - 1), delay: 120 * (headerLinks.length - i)}]
+          delay: i === headerLinks.length - 1 ? 0 : 90 * (headerLinks.length - i)},
+        { property: 'transform', speed: 10, value: 'translateX(%dpx)', end: 120 * (headerLinks.length - i - 1), delay: i === headerLinks.length - 1 ? 0 : 50}]
       ">
         <a routerLink="{{item.href}}" class="header__link" routerLinkActive="header__link--active">{{item.label}}</a>
       </li>

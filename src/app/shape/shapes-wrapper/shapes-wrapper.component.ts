@@ -1,9 +1,10 @@
-import {Component, ElementRef, Input, AfterViewInit, Renderer2, ViewChild} from '@angular/core';
+import {AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, Input, Renderer2, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-shapes-wrapper',
   templateUrl: './shapes-wrapper.component.html',
-  styleUrls: ['./shapes-wrapper.component.scss']
+  styleUrls: ['./shapes-wrapper.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ShapesWrapperComponent implements AfterViewInit {
   @ViewChild('wrapper') wrapper: ElementRef;
