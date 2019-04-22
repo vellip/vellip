@@ -2,7 +2,7 @@ import {Injectable, NgZone} from '@angular/core';
 import {WindowRefService} from './window-ref.service';
 
 export interface ParallaxOption {
-  [property: string]: {value: string, speed: number, start: number, end?: number, delay?: number, notNegative?: boolean}[];
+  [property: string]: {value: string, speed: number, start: number, end?: number, delay?: number, replaceIndex: number}[];
 }
 
 @Injectable({
@@ -11,21 +11,28 @@ export interface ParallaxOption {
 class Parallax {
   private state: number;
 
-  constructor(private node: HTMLElement, private options: ParallaxOption) { }
+  constructor(private node: HTMLElement, private options: ParallaxOption) {
+    for (const key in this.options) {
+      if (this.options.hasOwnProperty(key)) {
 
+        this.options[key].forEach(item => {
+          item.replaceIndex = item.value.indexOf('%d');
+          item.value = item.value.replace('%d', '');
+        });
+      }
+    }
+  }
 
   public scrollAction = (scrollTop: number): any  => {
     if (this.state === scrollTop) {
       return false;
     }
 
-    let cssText = '';
-
     for (const key in this.options) {
       if (this.options.hasOwnProperty(key)) {
-        cssText += `${key}: `;
-        this.options[key].forEach(el => {
+        let cssText = '';
 
+        this.options[key].forEach(el => {
           const start = el.start || 0;
           const delay = el.delay || 0;
           let style: number = (scrollTop - delay) / 10 * el.speed + start;
@@ -38,12 +45,13 @@ class Parallax {
           if (delay) {
             style = Math.max(0, style);
           }
-          cssText += el.value.replace(/%d/g, String(style));
+          cssText += el.value.slice(0, el.replaceIndex) + String(style) + el.value.slice(el.replaceIndex);
         });
+
+        this.node.style[key] = cssText;
       }
     }
     this.state = scrollTop;
-    this.node.style.cssText = cssText;
   }
 }
 

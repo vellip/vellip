@@ -30,14 +30,12 @@ img {
   height: auto;
 }
 
+.container {
+  max-width: 100%;
+  margin: 0;
+  padding: 0 120px;
+}
+
 .container--align {
   position: relative;
-}
-
-.container--body {
-  max-width: 1007px;
-}
-
-.container--copy {
-  max-width: 805px;
 }

@@ -4,11 +4,12 @@
 }
 
 :host ::ng-deep .shape--triangle {
-  width: 100px;
-  height: auto;
+  width: 120px;
+  height: 136px;
   z-index: -1;
   right: -40px;
   bottom: -60px;
+  transform-origin: 50% 0;
 }
 
 :host ::ng-deep .shape--circle {

@@ -19,6 +19,7 @@
 .header__list-item {
   width: 120px;
   text-align: right;
+  will-change: transform;
 }
 
 .header__link {

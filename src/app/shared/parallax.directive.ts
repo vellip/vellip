@@ -14,8 +14,10 @@ export class ParallaxDirective implements OnInit {
   ) { }
 
   ngOnInit() {
-    const options = this.buildOptions();
-    this.parallax.initParallax(this.el.nativeElement.querySelector('svg') || this.el.nativeElement, options);
+    if (this.parallaxKeys) {
+      const options = this.buildOptions();
+      this.parallax.initParallax(this.el.nativeElement.querySelector('svg') || this.el.nativeElement, options);
+    }
   }
 
   buildOptions(): ParallaxOption {

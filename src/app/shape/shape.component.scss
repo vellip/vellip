@@ -10,4 +10,5 @@
 
 .shape--squiggle {
   stroke-dasharray: 100%;
+  will-change: stroke-dashoffset;
 }

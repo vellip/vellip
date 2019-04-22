@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, NgZone, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {WindowRefService} from '../shared/window-ref.service';
 import {ApiService} from '../shared/api.service';
 import {Observable} from 'rxjs';
@@ -13,29 +13,36 @@ export class HomeComponent implements OnDestroy, OnInit {
   private title = 'Ich bin Philipp, <br> ein Webentwickler <br> aus Berlin';
   public projects$: Observable<Post[]>;
   private showPlaceholder = false;
+  private boundFunc: EventListenerObject;
 
   constructor(
     private winRef: WindowRefService,
-    private api: ApiService
+    private api: ApiService,
+    private ngZone: NgZone
   ) {}
 
   ngOnInit() {
+    this.boundFunc = this.checkPlaceholder.bind(this);
     this.projects$ = this.api.getProjects();
     this.projects$.subscribe(() => setTimeout(this.checkHeight.bind(this)));
-    this.winRef.nativeWindow.addEventListener('scroll', this.checkPlaceholder.bind(this));
+    this.ngZone.runOutsideAngular(() => {
+      this.winRef.nativeWindow.addEventListener('scroll', this.boundFunc);
+    });
   }
 
   checkPlaceholder() {
     const scrollTop = this.winRef.nativeWindow.scrollY;
     const documentElement = this.winRef.nativeWindow.document.documentElement;
     const body = documentElement.querySelector('body');
-    this.showPlaceholder = scrollTop >= 200;
+    const state = scrollTop >= 200;
 
-    if (this.showPlaceholder) {
+    if (state) {
       body.style.position = 'static';
-
     } else {
       body.style.position = 'fixed';
+    }
+    if (this.showPlaceholder !== state) {
+      this.ngZone.run(() => this.showPlaceholder = state);
     }
   }
 
@@ -48,6 +55,8 @@ export class HomeComponent implements OnDestroy, OnInit {
   ngOnDestroy() {
     const documentElement = this.winRef.nativeWindow.document.documentElement;
     documentElement.style.height = '';
+    documentElement.querySelector('body').style.position = '';
+    this.winRef.nativeWindow.removeEventListener('scroll', this.boundFunc);
   }
 
 }
