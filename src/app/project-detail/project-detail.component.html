@@ -6,8 +6,8 @@
         { property: 'transform', speed: 8, value: 'translateX(-%dpx)'}]
       "></app-shape>
       <app-shape *ngIf="project.title.length > 5" [shape]="'triangle'" [appParallax]="
-        [{ property: 'transform', speed: 8, value: 'translateY(-%dpx)'},
-        { property: 'transform', speed: 2, value: 'rotate(%ddeg)'}]
+        [{ property: 'transform', speed: 10, value: 'translateY(-%dpx)'},
+        { property: 'transform', speed: 2, value: 'rotate(-%ddeg)'}]
       "></app-shape>
       <app-shape [shape]="'rectangle'" [appParallax]="
         [{ property: 'transform', speed: 13, value: 'translateY(%dpx)', delay: 60},
