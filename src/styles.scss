@@ -9,8 +9,12 @@
 
 body {
   font-family: 'Source Sans Pro', sans-serif;
-  font-size: 21px;
+  font-size: 18px;
   overflow-x: hidden;
+
+  @include media-breakpoint-up(xl) {
+    font-size: 21px;
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {

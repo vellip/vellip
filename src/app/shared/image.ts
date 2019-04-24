@@ -1,5 +1,6 @@
 import {Deserializable} from './deserializable';
 import {environment} from '../../environments/environment';
+import {HttpParams} from '@angular/common/http';
 
 export class Image implements Deserializable {
   private _path: string;
@@ -21,5 +22,15 @@ export class Image implements Deserializable {
 
   set path(newPath: string) {
     this._path = newPath;
+  }
+
+  apiPath(options) {
+    let path = `${environment.apiUrl}/api/cockpit/image?token=${environment.apiKey}&src=${this.path}`;
+    if (options) {
+      options.o = true;
+      options = new HttpParams({fromObject: options});
+      path += `&${options.toString()}`;
+    }
+    return path;
   }
 }

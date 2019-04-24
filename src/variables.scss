@@ -8,11 +8,12 @@ $body-color: $secondary;
 $link-color: $secondary;
 $link-decoration: underline;
 
-$container-max-widths: (
-  sm: 540px,
-  md: 720px,
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
   lg: 1024px,
-  xl: 1220px
+  xl: 1300px
 );
 
 $grid-gutter-width: 24px;
