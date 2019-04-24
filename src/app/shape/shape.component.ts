@@ -8,6 +8,7 @@ import {AfterViewInit, ChangeDetectionStrategy, Component, Input} from '@angular
 })
 export class ShapeComponent implements AfterViewInit {
   @Input() shape: string;
+  @Input() classes: string;
 
   constructor() { }
 

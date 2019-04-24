@@ -10,8 +10,8 @@ import { MenuItem} from '../shared/menuItem';
 
 export class HeaderComponent implements AfterViewInit  {
   headerLinks: Array<MenuItem> = [
-    { label: 'Projekte', href: 'projects' },
-    { label: 'About', href: '' },
+    { label: 'Projekte', href: '/projects' },
+    { label: 'About', href: '/about' },
     { label: 'Blog', href: '' },
   ];
 

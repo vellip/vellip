@@ -1,0 +1,63 @@
+:host ::ng-deep .shape--rectangle--long {
+  width: 770px;
+  height: 170px;
+  left: -20px;
+  top: -10px;
+}
+
+:host ::ng-deep .shape--rectangle--small {
+  width: 160px;
+  height: 170px;
+  left: 790px;
+  top: -10px;
+}
+
+:host ::ng-deep .shape--triangle.shape {
+  width: 450px;
+  height: 400px;
+  left: 900px;
+  top: 250px;
+  z-index: -2;
+  position: fixed;
+}
+
+.about__head {
+  display: block;
+  margin-top: 210px;
+  margin-bottom: 100px;
+}
+
+.about__image {
+  border-radius: 50%;
+  width: 350px;
+  height: auto;
+  position: absolute;
+  z-index: -2;
+  left: 800px;
+  top: 110px;
+}
+
+.about__intro,
+.about__subtitle {
+  margin-bottom: 80px;
+}
+
+.about__subtitle + app-shapes-wrapper::ng-deep .shapesWrapper__fixedLayer {
+  top: auto;
+}
+
+.about__experience {
+  margin-bottom: 100px;
+
+  ::ng-deep .muted {
+    opacity: 0.5;
+  }
+}
+
+.about__skill {
+  margin-bottom: 50px;
+}
+
+.about__skills {
+  margin-bottom: 50px;
+}

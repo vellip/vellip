@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { Post } from './post';
-import {pluck, map} from 'rxjs/operators';
+import {pluck, map, take} from 'rxjs/operators';
 import {Observable} from 'rxjs';
+import {About} from './about';
 
 @Injectable({
   providedIn: 'root'
@@ -29,6 +30,13 @@ export class ApiService {
       .pipe(
         pluck('entries'),
         map((e: any) => new Post().deserialize(e[0]))
+      );
+  }
+
+  getAbout(): Observable<About> {
+    return this.http.get(`${this.apiUrl}/api/singletons/get/About?token=${this.apiKey}`)
+      .pipe(
+        map((e: any) => new About().deserialize(e))
       );
   }
 }

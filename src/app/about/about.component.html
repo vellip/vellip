@@ -1,0 +1,46 @@
+<div class="about" #wrapper *ngIf="data$ | async as page">
+  <div class="container container--align">
+    <app-shapes-wrapper [referenceNode]="wrapper.querySelector('#refNode')">
+      <app-shape [shape]="'rectangle'" classes="shape--rectangle--long" [appParallax]="
+        [{ property: 'transform', speed: 13, value: 'translateY(-%dpx)'}]
+      "></app-shape>
+    </app-shapes-wrapper>
+    <app-shape [shape]="'triangle'" [appParallax]="
+      [{ property: 'transform', speed: 7, value: 'translateY(-%dpx)'},
+      { property: 'transform', speed: 3, value: 'translateX(%dpx)'}]
+    "></app-shape>
+    <app-intro id="refNode" [title]="page.title" [hasMargin]="false" class="about__head"></app-intro>
+    <img [src]="page.picture.path" alt="{{page.picture.title}}" class="about__image"/>
+  </div>
+  <div class="container container--body">
+    <div class="offset-lg-1">
+      <div class="row">
+        <div class="col-xl-4 order-md-first col-md-6">
+          <p class="about__intro" [innerHTML]="page.intro"></p>
+        </div>
+      </div>
+
+      <div class="about__experience" [innerHTML]="page.experience"></div>
+
+      <h2 class="h1 about__subtitle">{{page.subtitle}}</h2>
+      <app-shapes-wrapper [referenceNode]="wrapper.querySelector('.about__subtitle')">
+        <app-shape [shape]="'rectangle'" classes="shape--rectangle--long" [appParallax]="
+          [{ property: 'transform', speed: 12, value: 'translateY(-%dpx)'}]
+        "></app-shape>
+        <app-shape [shape]="'rectangle'" classes="shape--rectangle--small" [appParallax]="
+          [{ property: 'transform', speed: 12, value: 'translateY(-%dpx)'}]
+        "></app-shape>
+      </app-shapes-wrapper>
+      <div class="row about__skills">
+        <div class="col-lg-10 offset-lg-1">
+          <div class="row">
+            <div class="col-lg-6 about__skill" *ngFor="let skill of page.skills">
+              <h3 class="h2">{{skill.value.title}}</h3>
+              <div [innerHTML]="skill.value.text"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
