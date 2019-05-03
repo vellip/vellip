@@ -1,7 +1,7 @@
 <div class="about" #wrapper *ngIf="data$ | async as page">
   <div class="container container--align">
     <app-shapes-wrapper [referenceNode]="wrapper.querySelector('#refNode')">
-      <app-shape [shape]="'rectangle'" classes="shape--rectangle--long" [appParallax]="
+      <app-shape [shape]="'rectangle'" classes="shape--rectangle--long shape--rectangle--dynamicWidth" [appParallax]="
         [{ property: 'transform', speed: 13, value: 'translateY(-%dpx)'}]
       "></app-shape>
     </app-shapes-wrapper>

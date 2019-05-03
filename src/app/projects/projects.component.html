@@ -4,7 +4,7 @@
   <app-shape *ngIf="(projects$ | async)?.length > 4" [shape]="'circle'"></app-shape>
   <app-shape *ngIf="(projects$ | async)?.length > 4" [shape]="'triangle'"></app-shape>
   <div class="row projects__list" *ngIf="projects$ && (projects$ | async)?.length">
-    <div class="col-sm-6" *ngFor="let project of projects$ | async">
+    <div class="col-lg-6" *ngFor="let project of projects$ | async">
       <app-project-teaser [gridStyle]="true"
                           [project]="project"></app-project-teaser>
     </div>

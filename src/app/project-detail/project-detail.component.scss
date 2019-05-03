@@ -1,3 +1,5 @@
+@import "default";
+
 :host ::ng-deep .intro__title {
   display: inline-block;
   position: relative;
@@ -8,43 +10,78 @@
   height: 136px;
   z-index: -1;
   right: -40px;
-  bottom: -60px;
+  top: -40px;
   transform-origin: 50% 0;
+
+  @include media-breakpoint-up(md) {
+    right: -40px;
+    bottom: -60px;
+    top: auto;
+  }
 }
 
 :host ::ng-deep .shape--circle {
   width: 100px;
   height: auto;
-  bottom: 0;
-  left: 40%;
+  top: -60px;
+  left: 230px;
+
+  @include media-breakpoint-up(md) {
+    left: 40%;
+  }
 }
 
 :host ::ng-deep .shape--rectangle {
   width: 200px;
   height: 40px;
   left: -20px;
-  bottom: 0;
+  top: 20px;
+
+  @include media-breakpoint-up(md) {
+    bottom: 0;
+  }
 }
 
 .project-detail__head {
   display: block;
-  margin-top: 210px;
-  margin-bottom: 100px;
+  margin-top: 100px;
+  margin-bottom: 80px;
+
+  @include media-breakpoint-up(md) {
+    margin-top: 210px;
+    margin-bottom: 100px;
+  }
 }
 
 .project-detail__intro {
-  margin-bottom: 120px;
+  margin-bottom: 80px;
 
   &:before {
     content: '____';
   }
+
+  @include media-breakpoint-up(md) {
+    margin-bottom: 120px;
+  }
 }
 
 .project-detail__body {
-  margin-bottom: 120px;
+  margin-bottom: 60px;
+
+  @include media-breakpoint-up(md) {
+    margin-bottom: 120px;
+  }
 
   ::ng-deep h2 {
     margin-top: 70px;
     margin-bottom: 15px;
+  }
+}
+
+.project-detail__facts {
+  margin-bottom: 20px;
+
+  @include media-breakpoint-up(md) {
+    margin-bottom: 0;
   }
 }

@@ -2,27 +2,26 @@
   <div class="container">
     <app-shapes-wrapper [referenceNode]="wrapper.querySelector('#refNode')">
       <app-shape *ngIf="project.title.length > 15" [shape]="'circle'" [appParallax]="
-        [{ property: 'transform', speed: 13, value: 'translateY(-%dpx)'},
-        { property: 'transform', speed: 8, value: 'translateX(-%dpx)'}]
+        [{speed: 13, value: 'translateY(-%dpx)'},
+        {speed: 8, value: 'translateX(-%dpx)'}]
       "></app-shape>
       <app-shape *ngIf="project.title.length > 5" [shape]="'triangle'" [appParallax]="
-        [{ property: 'transform', speed: 10, value: 'translateY(-%dpx)'},
-        { property: 'transform', speed: 2, value: 'rotate(-%ddeg)'}]
+        [{speed: 20, value: 'translateY(-%dpx)'}]
       "></app-shape>
       <app-shape [shape]="'rectangle'" [appParallax]="
-        [{ property: 'transform', speed: 13, value: 'translateY(%dpx)', delay: 60},
-        { property: 'transform', speed: 15, value: 'translateX(-%dpx)', delay: 60},
-        { property: 'transform', speed: 3, value: 'rotate(-%ddeg)', end: 40}]
+        [{speed: 13, value: 'translateY(%dpx)', delay: 60},
+        {speed: 15, value: 'translateX(-%dpx)', delay: 60},
+        {speed: 3, value: 'rotate(-%ddeg)', end: 40}]
       "></app-shape>
     </app-shapes-wrapper>
     <app-intro id="refNode" [title]="project.title" [hasMargin]="false" class="project-detail__head"></app-intro>
   </div>
-  <div class="container container--body">
+  <div class="container">
     <div class="row">
       <div class="offset-lg-1 col-lg-4 order-md-first col-md-6">
         <p class="project-detail__intro">{{project.intro}}</p>
       </div>
-      <div class="col-lg-3 offset-lg-1 order-first col-md-6">
+      <div class="col-lg-3 offset-lg-1 order-first col-md-6 project-detail__facts">
         <app-fact-list [facts]="project.facts"></app-fact-list>
       </div>
     </div>
@@ -34,7 +33,7 @@
 
   <div class="container project-detail__body">
     <div class="row">
-      <div class="offset-sm-2 col-sm-8 col-md-6 offset-md-3">
+      <div class="offset-sm-2 col-sm-8">
         <ng-container *ngFor="let component of project.body">
           <div [innerHTML]="component.toHtml()"></div>
         </ng-container>
