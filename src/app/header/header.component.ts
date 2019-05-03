@@ -12,7 +12,7 @@ export class HeaderComponent implements AfterViewInit  {
   headerLinks: Array<MenuItem> = [
     { label: 'Projekte', href: '/projects' },
     { label: 'About', href: '/about' },
-    { label: 'Blog', href: '' },
+    { label: 'Blog', href: 'https://medium.com/@vellip', target: '_blank' },
   ];
 
   constructor() { }

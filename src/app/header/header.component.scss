@@ -1,4 +1,4 @@
-@import "../../variables";
+@import "default";
 
 .header {
   padding-top: 1.4rem;
@@ -17,14 +17,13 @@
 }
 
 .header__list-item {
-  width: 120px;
+  width: 85px;
   text-align: right;
-  will-change: transform;
 }
 
 .header__link {
   color: $secondary;
-  font-size: 1rem;
+  font-size: 16px;
   letter-spacing: 2px;
   text-transform: uppercase;
   text-decoration: none;
@@ -35,4 +34,8 @@
   margin-left: 0;
   text-align: left;
   width: auto;
+}
+
+.header__link--active {
+  border-bottom: 1.5px solid #333;
 }
