@@ -14,6 +14,7 @@ export class HomeComponent implements OnDestroy, OnInit {
   public projects$: Observable<Post[]>;
   private showPlaceholder = false;
   private boundFunc: EventListenerObject;
+  private body: HTMLElement;
 
   constructor(
     private winRef: WindowRefService,
@@ -24,7 +25,8 @@ export class HomeComponent implements OnDestroy, OnInit {
   ngOnInit() {
     this.boundFunc = this.checkPlaceholder.bind(this);
     this.projects$ = this.api.getProjects();
-    this.projects$.subscribe(() => setTimeout(this.checkHeight.bind(this)));
+    this.body = this.winRef.nativeWindow.document.documentElement.querySelector('body');
+    setTimeout(this.checkHeight.bind(this));
     this.ngZone.runOutsideAngular(() => {
       this.winRef.nativeWindow.addEventListener('scroll', this.boundFunc);
     });
@@ -32,14 +34,12 @@ export class HomeComponent implements OnDestroy, OnInit {
 
   checkPlaceholder() {
     const scrollTop = this.winRef.nativeWindow.scrollY;
-    const documentElement = this.winRef.nativeWindow.document.documentElement;
-    const body = documentElement.querySelector('body');
     const state = scrollTop >= 200;
 
     if (state) {
-      body.style.position = 'static';
+      this.body.classList.remove('home--fixed');
     } else {
-      body.style.position = 'fixed';
+      this.body.classList.add('home--fixed');
     }
     if (this.showPlaceholder !== state) {
       this.ngZone.run(() => this.showPlaceholder = state);
@@ -48,14 +48,14 @@ export class HomeComponent implements OnDestroy, OnInit {
 
   checkHeight() {
     const documentElement = this.winRef.nativeWindow.document.documentElement;
-    documentElement.style.height = `${documentElement.scrollHeight + 200}px`;
-    documentElement.querySelector('body').style.position = 'fixed';
+    documentElement.style.height = `${this.winRef.nativeWindow.innerHeight + 250}px`;
+    this.body.classList.add('home--fixed');
   }
 
   ngOnDestroy() {
     const documentElement = this.winRef.nativeWindow.document.documentElement;
     documentElement.style.height = '';
-    documentElement.querySelector('body').style.position = '';
+    this.body.classList.remove('home--fixed');
     this.winRef.nativeWindow.removeEventListener('scroll', this.boundFunc);
   }
 
