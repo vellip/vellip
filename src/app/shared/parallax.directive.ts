@@ -1,5 +1,5 @@
 import {Directive, ElementRef, Input, OnInit} from '@angular/core';
-import {ParallaxOption, ParallaxService} from './parallax.service';
+import {TransformKey, ParallaxService} from './parallax.service';
 
 @Directive({
   selector: '[appParallax]',
@@ -15,20 +15,8 @@ export class ParallaxDirective implements OnInit {
 
   ngOnInit() {
     if (this.parallaxKeys) {
-      const options = this.buildOptions();
-      this.parallax.initParallax(this.el.nativeElement.querySelector('svg') || this.el.nativeElement, options);
+      this.parallax.initParallax(this.el.nativeElement.querySelector('svg') || this.el.nativeElement,
+        this.parallaxKeys);
     }
-  }
-
-  buildOptions(): ParallaxOption {
-    const options: ParallaxOption = {};
-
-    this.parallaxKeys.forEach(item => {
-      if (!options[item.property]) {
-        options[item.property] = [];
-      }
-      options[item.property].push(item);
-    });
-    return options;
   }
 }
