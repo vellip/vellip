@@ -9,10 +9,10 @@ import {Observable} from 'rxjs';
 })
 export class HomeComponent implements OnDestroy, OnInit {
   @ViewChild('wrapper') wrapper: ElementRef;
-  private preTitle = 'Hallo!';
-  private title = 'Ich bin Philipp, <br> ein Webentwickler <br> aus Berlin';
+  public preTitle = 'Hallo!';
+  public title = 'Ich bin Philipp, <br> Webentwickler aus Berlin';
   public projects$: Observable<Post[]>;
-  private showPlaceholder = false;
+  public showPlaceholder = false;
   private boundFunc: EventListenerObject;
   private body: HTMLElement;
 

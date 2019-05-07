@@ -1,4 +1,3 @@
-
-<svg #shapeNode [ngClass]="'shape shape--' + shape + ' ' + classes" [attr.data-speed]="speed" [attr.data-key]="parallaxKey">
+<svg [ngClass]="'shape shape--' + shape + ' ' + classes">
   <use [attr.xlink:href]="'/assets/' + shape + '.svg#icon'"></use>
 </svg>

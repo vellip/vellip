@@ -1,5 +1,5 @@
 <div class="row project-images">
   <div class="col-sm-6" *ngFor="let image of images">
-    <img [src]="image.apiPath({h: 400, m: 'bestFit'})" alt="{{image.title}}" class="project-images__image" />
+    <img [src]="image.apiPath({w: 800, h:400, m: 'crop'})" alt="{{image.title}}" class="project-images__image" />
   </div>
 </div>
