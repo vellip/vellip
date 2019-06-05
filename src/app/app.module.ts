@@ -17,6 +17,7 @@ import { ProjectImagesComponent } from './project-images/project-images.componen
 import { ShapesWrapperComponent } from './shape/shapes-wrapper/shapes-wrapper.component';
 import { ParallaxDirective } from './shared/parallax.directive';
 import { AboutComponent } from './about/about.component';
+import { TextPageComponent } from './text-page/text-page.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { AboutComponent } from './about/about.component';
     ShapesWrapperComponent,
     ParallaxDirective,
     AboutComponent,
+    TextPageComponent,
   ],
   imports: [
     BrowserModule,

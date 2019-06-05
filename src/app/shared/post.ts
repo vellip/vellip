@@ -27,3 +27,15 @@ export class Post implements Deserializable {
     return this;
   }
 }
+
+export class TextPage implements Deserializable {
+  public title: string;
+  public body: Component[];
+
+  deserialize(input: any): this {
+    Object.assign(this, input);
+    this.body = input.body.map(el => new Component().deserialize(el));
+    return this;
+  }
+}
+
