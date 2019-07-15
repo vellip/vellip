@@ -50,9 +50,9 @@
 
 .intro__title,
 .intro__pre {
-  font-size: $font-size-base * 2.4;
+  font-size: 1.778rem;
 
   @include media-breakpoint-up(sm) {
-    font-size: $h1-font-size;
+    font-size: 3.429rem;
   }
 }

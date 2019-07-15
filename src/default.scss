@@ -29,3 +29,25 @@ $headings-font-weight: bold;
 @import '~bootstrap/scss/functions';
 @import '~bootstrap/scss/mixins';
 @import '~bootstrap/scss/variables';
+
+@mixin hover-line {
+  position: relative;
+
+  &:before {
+    content: '';
+    display: block;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 2px;
+    background: #333;
+    transition: transform 0.3s;
+    transform-origin: 0 100%;
+    transform: scaleX(0);
+  }
+
+  &:hover:before {
+    transform: scaleX(1);
+  }
+}

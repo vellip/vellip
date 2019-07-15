@@ -18,6 +18,7 @@ import { ShapesWrapperComponent } from './shape/shapes-wrapper/shapes-wrapper.co
 import { ParallaxDirective } from './shared/parallax.directive';
 import { AboutComponent } from './about/about.component';
 import { TextPageComponent } from './text-page/text-page.component';
+import { SafePipe } from './safe.pipe';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { TextPageComponent } from './text-page/text-page.component';
     ParallaxDirective,
     AboutComponent,
     TextPageComponent,
+    SafePipe,
   ],
   imports: [
     BrowserModule,

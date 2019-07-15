@@ -1,5 +1,4 @@
 <div class="home" #wrapper>
-  <div class="home__placeholder" *ngIf="showPlaceholder"></div>
   <div class="container">
     <app-shapes-wrapper [referenceNode]="wrapper.querySelector('#refNode')" [container]="true">
       <app-shape [shape]="'circle'" [appParallax]="
@@ -9,13 +8,13 @@
       <app-shape [shape]="'triangle'" [appParallax]="
         [{speed: 3, value: 'rotate(-%ddeg)', delay: 30, end: 180}]
       "></app-shape>
-      <app-shape [shape]="'rectangle'" [appParallax]="
-        [{speed: 0.5, value: 'scaleY(%d)', start: 1, end: 3},
-        {speed: 6, value: 'translateY(-%dpx)', end: 70, delay: 50},
-        {speed: 15, value: 'translateX(-%dpx)', delay: 170}]
-      "></app-shape>
       <app-shape [shape]="'squiggle'" [appParallax]="[{ property: 'stroke-dashoffset', speed: 20, value: '%dpx', start: 1779, end: 2740, delay: 150}]"></app-shape>
     </app-shapes-wrapper>
+    <app-shape [shape]="'rectangle'" [appParallax]="
+      [{speed: 0.5, value: 'scaleY(%d)', start: 1, end: 3},
+      {speed: 6, value: 'translateY(-%dpx)', end: 70, delay: 50},
+      {speed: 15, value: 'translateX(-%dpx)', delay: 170}]
+    "></app-shape>
     <app-intro id="refNode" [pre]="preTitle" [title]="title"></app-intro>
   </div>
   <app-project-teaser *ngFor="let project of projects$ | async; let i = index"

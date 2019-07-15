@@ -76,6 +76,12 @@
     margin-top: 70px;
     margin-bottom: 15px;
   }
+
+  ::ng-deep iframe {
+    max-width: 100%;
+    margin: 0 auto;
+    display: block;
+  }
 }
 
 .project-detail__facts {

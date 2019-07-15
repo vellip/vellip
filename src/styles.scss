@@ -6,12 +6,8 @@
 
 html {
   font-family: 'Source Sans Pro', sans-serif;
-  font-size: 16px;
+  font-size: 18px;
   overflow-x: hidden;
-
-  @include media-breakpoint-up(sm) {
-    font-size: 18px;
-  }
 
   @include media-breakpoint-up(xl) {
     font-size: 21px;

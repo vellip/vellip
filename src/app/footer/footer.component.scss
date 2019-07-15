@@ -29,14 +29,19 @@
 }
 
 .footer__label {
-  font-size: 1.3125rem;
+  font-size: 1.3rem;
   margin-bottom: 0.3125rem;
   font-weight: normal;
 }
 
 .footer__value {
-  font-size: 2rem;
+  font-size: 1.524rem;
   font-weight: bold;
+  text-decoration: none;
+}
+
+a.footer__value {
+  @include hover-line();
 }
 
 .footer__list {
@@ -47,7 +52,7 @@
   justify-content: flex-end;
 
   @include media-breakpoint-up(md) {
-    margin: 0 0 15px;
+    margin: 0 0 17px;
   }
 
   > li {
@@ -56,5 +61,10 @@
 
   a {
     color: $body-color;
+    transition: opacity 0.3s;
+
+    &:hover {
+      opacity: 0.5;
+    }
   }
 }

@@ -19,6 +19,7 @@ export class Post implements Deserializable {
   public excerpt: string;
 
   deserialize(input: any): this {
+    console.log(input)
     Object.assign(this, input);
     this.image = new Image().deserialize(input.image);
     this.gallery = input.gallery.map(el => new Image().deserialize(el));

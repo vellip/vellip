@@ -1,11 +1,15 @@
 @import "default";
 
 .header {
-  padding-top: 1.4rem;
   position: fixed;
   z-index: 1;
   top: 0;
   width: 100%;
+  padding: 1.4rem 10px 0;
+
+  @include media-breakpoint-up(xl) {
+    padding: 1.4rem 40px 0;
+  }
 }
 
 .header__list {
@@ -27,6 +31,8 @@
   letter-spacing: 2px;
   text-transform: uppercase;
   text-decoration: none;
+
+  @include hover-line();
 }
 
 .header__list-item--home {
@@ -37,5 +43,5 @@
 }
 
 .header__link--active {
-  border-bottom: 1.5px solid #333;
+  border-bottom: 2px solid #333;
 }
